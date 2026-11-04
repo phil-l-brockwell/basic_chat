@@ -1,0 +1,7 @@
+<% if pagy.next %>
+  <%= turbo_frame_tag "older_messages", src: room_messages_path(room, page: pagy.next, format: :turbo_stream), loading: :lazy, class: "block mb-3 text-center text-xs text-gray-500" do %>
+    Loading older messages…
+  <% end %>
+<% else %>
+  <%= turbo_frame_tag "older_messages" %>
+<% end %>

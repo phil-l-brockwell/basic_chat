@@ -14,7 +14,7 @@ describe "Sessions", type: :request do
 
     it "redirects to the root page" do
       expect(response).to redirect_to(root_url)
-      get root_path
+      get room_path(Room.default)
       expect(response).to have_http_status(:ok)
     end
   end

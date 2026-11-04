@@ -13,6 +13,7 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 gem "bcrypt", "~> 3.1"
+gem "pagy", "~> 43.8"
 gem "bootsnap", require: false
 
 group :development, :test do

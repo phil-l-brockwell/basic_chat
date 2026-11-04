@@ -10,8 +10,13 @@ describe "Registrations", type: :request do
   it "creates an account and signs the user in" do
     expect { post registration_path, params: params }.to change(User, :count).by(1)
     expect(response).to redirect_to(root_path)
-    get root_path
+    get room_path(Room.default)
     expect(response).to have_http_status(:ok)
+  end
+
+  it "adds the new user to the #basic room" do
+    post registration_path, params: params
+    expect(User.find_by(email_address:).rooms).to eq([ Room.default ])
   end
 
   context "when the password and password confirmation do not match" do

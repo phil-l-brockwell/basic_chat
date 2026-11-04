@@ -1,0 +1,11 @@
+<%= form_with model: [ room, message ], id: "new_message", class: "mt-4" do |form| %>
+  <% if message.errors.any? %>
+    <p class="py-2 px-3 bg-red-50 mb-3 text-red-500 font-medium rounded-lg" id="message_errors"><%= message.errors.full_messages.to_sentence %></p>
+  <% end %>
+
+  <div class="flex gap-3">
+    <%= form.label :body, "Message", class: "sr-only" %>
+    <%= form.text_field :body, required: true, autofocus: true, autocomplete: "off", maxlength: Message::MAXIMUM_LENGTH, placeholder: "Write a message", class: "flex-1 min-w-0 shadow-sm rounded-md border border-gray-400 focus:outline-blue-600 px-3 py-2" %>
+    <%= form.submit "Send", class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium cursor-pointer" %>
+  </div>
+<% end %>

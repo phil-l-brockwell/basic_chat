@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "messages" do %>
+  <%= render @messages.reverse %>
+<% end %>
+
+<%= turbo_stream.replace "older_messages" do %>
+  <%= render "messages/older_messages", room: @room, pagy: @pagy %>
+<% end %>

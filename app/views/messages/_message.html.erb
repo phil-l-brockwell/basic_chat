@@ -1,0 +1,7 @@
+<div id="<%= dom_id(message) %>" class="text-sm" data-scroll-to-bottom-target="message">
+  <div class="flex items-baseline gap-2">
+    <span class="font-medium text-gray-900"><%= message.user.email_address %></span>
+    <%= time_tag message.created_at, message.created_at.strftime("%H:%M"), class: "text-xs text-gray-500" %>
+  </div>
+  <p class="text-gray-800 whitespace-pre-line break-words"><%= message.body %></p>
+</div>
