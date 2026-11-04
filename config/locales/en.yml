@@ -1,0 +1,10 @@
+en:
+  digest_mailer:
+    weekly:
+      subject: "Your week on Basic Chat"
+      messages_last_week:
+        one: "%{formatted_count} message has been exchanged in the last week."
+        other: "%{formatted_count} messages have been exchanged in the last week."
+      since_last_message: "%{formatted_count} since your last message on the %{date}."
+      since_joined: "%{formatted_count} since you joined on the %{date}."
+      join: "Join the conversation"

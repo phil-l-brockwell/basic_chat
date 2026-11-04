@@ -1,0 +1,5 @@
+<%= t(".messages_last_week", count: @digest.messages_last_week, formatted_count: number_with_delimiter(@digest.messages_last_week)) %>
+
+<%= t(@digest.last_message_at ? ".since_last_message" : ".since_joined", formatted_count: number_with_delimiter(@digest.messages_since_last_message), date: ordinal_date(@digest.since)) %>
+
+<%= t(".join") %>: <%= root_url %>
