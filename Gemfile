@@ -12,6 +12,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
+gem "bcrypt", "~> 3.1"
 gem "bootsnap", require: false
 
 group :development, :test do
