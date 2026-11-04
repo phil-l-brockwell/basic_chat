@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: basic_chat_development
+test:
+  <<: *default
+  database: basic_chat_test
+production:
+  primary: &primary_production
+    <<: *default
+    database: basic_chat_production
+    username: basic_chat
+    password: <%= ENV["BASIC_CHAT_DATABASE_PASSWORD"] %>
+  cache:
+    <<: *primary_production
+    database: basic_chat_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: basic_chat_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: basic_chat_production_cable
+    migrations_paths: db/cable_migrate
